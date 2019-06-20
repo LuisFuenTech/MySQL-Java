@@ -6,10 +6,7 @@
 package CRUD;
 
 import ConexionGeneral.ConexionGeneral;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -237,7 +234,7 @@ public class Vista extends javax.swing.JFrame {
         
         try{
             
-            conexion = new ConexionGeneral("localhost", "3306", "escuela", "root", "1234");//Inicializar objeto ConexionGeneral
+            conexion = new ConexionGeneral("localhost", "3306", "acceso_db", "root", "");//Inicializar objeto ConexionGeneral
             con = conexion.getConnection(); //Variable Connection es igualada a conexion.getConnection();
             
             /*Insertará en la tabla "persona" en las columnas. En VALUES, los 
@@ -280,7 +277,7 @@ public class Vista extends javax.swing.JFrame {
         con = null;
         try{
             
-            conexion = new ConexionGeneral("localhost", "3306", "escuela", "root", "1234");//Inicializar objeto ConexionGeneral
+            conexion = new ConexionGeneral("localhost", "3306", "acceso_db", "root", "");//Inicializar objeto ConexionGeneral
             con = conexion.getConnection(); //Variable Connection es igualada a conexion.getConnection();
             
             //Realiza la petición de consulta a la BDD
@@ -311,7 +308,7 @@ public class Vista extends javax.swing.JFrame {
         
         try{
             
-            conexion = new ConexionGeneral("localhost", "3306", "escuela", "root", "1234");
+            conexion = new ConexionGeneral("localhost", "3306", "acceso_db", "root", "");
             con = conexion.getConnection();
             
             ps = con.prepareStatement("UPDATE persona SET clave=?, nombre=?,"
@@ -346,7 +343,7 @@ public class Vista extends javax.swing.JFrame {
         
         try{
             
-            conexion = new ConexionGeneral("localhost", "3306", "escuela", "root", "1234");
+            conexion = new ConexionGeneral("localhost", "3306", "acceso_db", "root", "");
             con = conexion.getConnection();
             ps = con.prepareStatement("DELETE FROM persona WHERE id=?");            
             ps.setInt(1, Integer.parseInt(id_tf.getText()));
